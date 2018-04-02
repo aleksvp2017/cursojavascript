@@ -1,5 +1,6 @@
 class Negociacao{
 
+    //Classe negociação
     constructor(data, quantidade, valor){
         this._data = data;
         this._quantidade = quantidade;
@@ -23,4 +24,5 @@ class Negociacao{
     get valor(){
         return this._valor;
     }
+
 }
