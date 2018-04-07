@@ -5,32 +5,39 @@ class NegociacaoController{
         this._data = $('#data');
         this._quantidade = $('#quantidade');
         this._valor = $('#valor');
+        this._listaNegociacoes = new ListaNegociacoes();
     }
 
-    adicionar(event){
+    adicionarNegociacao(event){
         event.preventDefault();
-        
-        console.log(this._data.value);
 
-        let negociacao = this.criarNegociacao();
-        console.log(negociacao);
+        let negociacao = this._criarNegociacao();
+        //console.log('Negociação criada: ' + DateHelper.converterDataParaTexto(negociacao.data));
 
-        this.limparFormulario();
-        console.log(negociacao);
+        this._listaNegociacoes.adicionarNegociacao(negociacao);
+        //console.log(this._listaNegociacoes.negociacoes);
+
+        //tentando apagar tudo
+        this._listaNegociacoes.negociacoes.length = 0;
+
+        //tentando adicionar de outro jeito
+        this._listaNegociacoes.negociacoes.push(this._criarNegociacao());
+        console.log(this._listaNegociacoes.negociacoes);
+
+        this._limparFormulario();
     }
 
-    criarNegociacao(){
-        let negociacao = new Negociacao(
-            new Date(this._data.value.replace(/-/g, ',')), 
+    _criarNegociacao(){
+        let negociacao = new Negociacao(DateHelper.converterTextoParaData(this._data.value), 
             this._quantidade.value, 
             this._valor.value);
         return negociacao;
     }
 
-    limparFormulario(){
+    _limparFormulario(){
         this._data.value = '';
-        this._quantidade = 0;
-        this._valor = 0.0;
+        this._quantidade.value = 0;
+        this._valor.value = 0.0;
     }
     
 }
