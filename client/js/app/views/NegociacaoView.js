@@ -1,8 +1,3 @@
-/*
-
-
-    */
-
     class NegociacaoView{
 
         constructor(elemento){

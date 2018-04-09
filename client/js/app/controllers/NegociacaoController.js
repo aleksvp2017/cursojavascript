@@ -7,27 +7,16 @@ class NegociacaoController{
         this._valor = $('#valor');
         this._listaNegociacoes = new ListaNegociacoes();
         this._negociacaoView = new NegociacaoView($('#negociacoesView'));
+        this._mensagemView = new MensagensView($('#mensagensView'));
     }
 
     adicionarNegociacao(event){
         event.preventDefault();
 
-        let negociacao = this._criarNegociacao();
-        //console.log('Negociação criada: ' + DateHelper.converterDataParaTexto(negociacao.data));
-
-        this._listaNegociacoes.adicionarNegociacao(negociacao);
-        //console.log(this._listaNegociacoes.negociacoes);
-
-        //tentando apagar tudo
-        this._listaNegociacoes.negociacoes.length = 0;
-
-        //tentando adicionar de outro jeito
-        this._listaNegociacoes.negociacoes.push(this._criarNegociacao());
-        //console.log(this._listaNegociacoes.negociacoes);
-
+        this._listaNegociacoes.adicionarNegociacao(this._criarNegociacao());
         this._limparFormulario();
-
         this._negociacaoView.update(this._listaNegociacoes);
+        this._mensagemView.update(new Mensagem("Negociação incluída com sucesso"));
     }
 
     _criarNegociacao(){
