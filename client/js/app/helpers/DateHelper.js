@@ -21,7 +21,7 @@ class DateHelper{
     }
     
     static converterDataParaTexto(data){
-        return `$data.getDate() /  ($data.getMonth() + 1) / $data.getFullYear()`;
+        return `${data.getDate()} /  ${data.getMonth() + 1} / ${data.getFullYear()}`;
     
     }
 

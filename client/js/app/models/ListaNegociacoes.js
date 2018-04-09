@@ -14,4 +14,10 @@ class ListaNegociacoes{
         //ou [].concat(this._negociacoes);
     }
 
+    get volumeTotal(){
+        let volumeTotal = 0;
+        this._negociacoes.forEach (negociacao => {volumeTotal += negociacao.volume;});
+        return volumeTotal;
+    }
+
 }
