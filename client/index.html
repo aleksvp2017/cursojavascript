@@ -11,7 +11,7 @@
     
     <h1 class="text-center">Negociações</h1>
 
-    <div id="mensagensView"/>
+    <div id="mensagensView"></div>
     
     <form class="form" onsubmit="negociacaoController.adicionarNegociacao(event)">
         
@@ -37,7 +37,7 @@
         <button class="btn btn-primary text-center" type="button">
             Importar Negociações
         </button>
-        <button class="btn btn-primary text-center" type="button">
+        <button class="btn btn-primary text-center" type="button" onclick="negociacaoController.apagarNegociacoes(event)">
             Apagar
         </button>
     </div> 
@@ -45,7 +45,8 @@
     <br>
     
     <div id="negociacoesView"/>
-
+    
+    <script src="js/app/views/View.js"></script>    
     <script src="js/app/models/Negociacao.js"></script>
     <script src="js/app/models/ListaNegociacoes.js"></script>
     <script src="js/app/models/Mensagem.js"></script>    
