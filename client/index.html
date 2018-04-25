@@ -54,9 +54,34 @@
     <script src="js/app/helpers/DateHelper.js"></script>
     <script src="js/app/views/NegociacaoView.js"></script>
     <script src="js/app/views/MensagensView.js"></script>
+    <script src="js/app/listener/NegociacaoListener.js"></script>
 
     <script>
+        
         let negociacaoController = new NegociacaoController();
+
+        /* Teste com proxy*/
+        /*let negociacao = new Proxy(new Negociacao(new Date(), 1, 100), { 
+                
+                get: function(objeto, propriedade, proxy){
+                    alert(`acessando a propriedade ${propriedade}`);
+                    return Reflect.get(objeto, propriedade, proxy);
+                },
+
+                set: function(objeto, propriedade, novovalor, proxy){
+                    alert(`alterando a propriedade ${propriedade} de ${objeto[propriedade]} 
+                        para ${novovalor} `);
+                    return Reflect.set(objeto, propriedade, novovalor, proxy);
+                }
+
+            }
+        );
+        console.log(negociacao.quantidade);
+        console.log(negociacao.valor);
+
+        negociacao._quantidade = 1000;
+        negociacao._valor = 1000;
+        //alert(negociacao.quantidade);*/
     </script>
 </body>
 </html>
